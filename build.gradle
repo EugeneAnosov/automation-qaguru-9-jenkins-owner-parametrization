@@ -1,0 +1,52 @@
+plugins {
+    id 'java-library'
+    id "io.qameta.allure" version "2.8.1"
+    id "org.gradle.test-retry" version "1.2.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    version = "2.13.8"
+    autoconfigure = true
+    aspectjweaver = true
+    configuration = "testImplementation"
+
+    useJUnit5 {
+        version = "2.13.8"
+    }
+}
+
+def selenideVersion = "5.20.1",
+    junitVersion = "5.7.1",
+    aspectJWeavwerVersion = "1.9.6",
+    allureVersion = "2.13.8",
+    javaFakerVersion = "1.0.2"
+
+dependencies {
+    testImplementation (
+            "org.aspectj:aspectjweaver:$aspectJWeavwerVersion",
+            "com.codeborne:selenide:$selenideVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "com.github.javafaker:javafaker:$javaFakerVersion",
+
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+test {
+    useJUnitPlatform()
+    /*   retry {
+           maxRetries = 3
+           maxFailures = 20
+           failOnPassedAfterRetry = true
+       }*/
+}
