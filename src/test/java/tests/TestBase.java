@@ -19,7 +19,7 @@ public class TestBase {
 
     @BeforeAll
     static void setup() throws MalformedURLException {
-        System.out.println(System.getProperties());
+        //System.out.println(System.getProperties());
         System.out.println(System.getProperty("a"));
 
         addListener("AllureSelenide", new AllureSelenide());
