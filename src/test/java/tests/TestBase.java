@@ -8,8 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.net.MalformedURLException;
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.AttachmentHelper.*;
@@ -19,9 +17,7 @@ public class TestBase {
     static DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
     @BeforeAll
-    static void setup() throws MalformedURLException {
-        //System.out.println(System.getProperties());
-        //System.out.println(System.getProperty("a"));
+    static void setup() {
 
         addListener("AllureSelenide", new AllureSelenide());
         Configuration.startMaximized = true;
@@ -35,9 +31,9 @@ public class TestBase {
         //gradle clean test -Dweb.browser="opera"
         Configuration.browser = System.getProperty("web.browser", "chrome");
 
-//        gradle clean test
-//        gradle clean test -Dremote.web.driver="https://user1:1234@selenoid.autotests.cloud/wd/hub/"
-//        gradle clean test -Dremote.web.driver="https://%s:%s@selenoid.autotests.cloud/wd/hub/"
+        //gradle clean test
+        //gradle clean test -Dremote.web.driver="https://user1:1234@selenoid.autotests.cloud/wd/hub/"
+        //gradle clean test -Dremote.web.driver="https://%s:%s@selenoid.autotests.cloud/wd/hub/"
 
         /*
         "https://%s:%s@selenoid.autotests.cloud/wd/hub/"
