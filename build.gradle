@@ -25,7 +25,7 @@ def selenideVersion = "5.20.1",
     javaFakerVersion = "1.0.2"
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "org.aspectj:aspectjweaver:$aspectJWeavwerVersion",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
