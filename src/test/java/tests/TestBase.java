@@ -14,7 +14,7 @@ import static helpers.AttachmentHelper.*;
 
 public class TestBase {
 
-    static DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class, System.getProperties());
+    static DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
     @BeforeAll
     static void setup() {
@@ -44,17 +44,12 @@ public class TestBase {
 
         String remoteWebDriver = System.getProperty("remote.web.driver");
 
-        if(remoteWebDriver != null) {
+        if (remoteWebDriver != null) {
             String user = driverConfig.remoteWebUser();
             String password = driverConfig.remoteWebPassword();
             Configuration.remote = String.format(remoteWebDriver, user, password);
-
-            System.out.println(user);
-            System.out.println(password);
-            System.out.println(remoteWebDriver);
-            System.out.println(String.format(remoteWebDriver, user, password));
         }
-     }
+    }
 
     @AfterEach
     void afterEach() {

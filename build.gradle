@@ -25,7 +25,7 @@ def selenideVersion = "5.20.1",
     javaFakerVersion = "1.0.2"
 
 dependencies {
-    testImplementation(
+    testImplementation (
             "org.aspectj:aspectjweaver:$aspectJWeavwerVersion",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
@@ -43,12 +43,11 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    systemProperties = System.properties
-
+    systemProperties(System.getProperties())
     testLogging {
         lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "full"
+             events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
         }
     }
 }
