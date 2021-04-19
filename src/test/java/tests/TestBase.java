@@ -14,7 +14,7 @@ import static helpers.AttachmentHelper.*;
 
 public class TestBase {
 
-    static DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
+    static DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class, System.getProperties());
 
     @BeforeAll
     static void setup() {
