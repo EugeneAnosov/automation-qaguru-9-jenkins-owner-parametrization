@@ -45,7 +45,6 @@ public class PracticeFormRegistrationPage extends TestBase {
     private void setHobbySubjectData(TestData testData) {
         $("#subjectsInput").setValue(testData.subject).pressTab();
         $(byText(testData.hobbies)).click();
-        $("#uploadPicture").uploadFromClasspath("img/" + testData.file);
     }
 
     @Step("Upload image")

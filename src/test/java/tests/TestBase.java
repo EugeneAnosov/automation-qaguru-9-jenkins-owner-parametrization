@@ -48,6 +48,7 @@ public class TestBase {
             String user = driverConfig.remoteWebUser();
             String password = driverConfig.remoteWebPassword();
             Configuration.remote = String.format(remoteWebDriver, user, password);
+            Configuration.browserVersion = System.getProperty("web.browser.version");
         }
     }
 
